@@ -1,11 +1,11 @@
-fun taskRef(name: String) {
+fun taskRef(name: String) =
     gradle.includedBuilds.flatMap {
         val prefix = it.name
         listOf(
             it.task(":$name")
         )
     }
-}
+
 
 tasks {
     arrayOf("assemble", "build", "clean").forEach {
