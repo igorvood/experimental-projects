@@ -11,5 +11,7 @@
 
     <include file="liquibase/stored/liquibase-stored.xml"/>
 
+    <include file="liquibase/tests/for_tests.xml"/>
+
 
 </databaseChangeLog>
