@@ -1,6 +1,6 @@
 <#macro lqb_mgr l_file_type l_file_name l_run_always>
-    <changeSet id="${l_file_name}" author="nobody" runAlways="${l_run_always}">
-        <${l_file_type} path="${l_file_name}" endDelimiter="${"\"$"+ "{sqlBatchDelimiter}\""} relativeToChangelogFile="true" />
+    <changeSet id="${l_file_name}" author="nobody" runAlways="${l_run_always?c}">
+        <${l_file_type} path="${l_file_name}" endDelimiter=${"\"$"+ "{sqlBatchDelimiter}\""} relativeToChangelogFile="true" />
     </changeSet>
 </#macro>
 
@@ -45,5 +45,11 @@
 <#macro mgr_sql_cd in_dir in_mdir in_files>
     <#list in_files as f>
         <@mgr_sql "${in_dir}/${in_mdir}/${f}"/>
+    </#list>
+</#macro>
+
+<#macro mgr_sql_cd_f in_files>
+    <#list in_files as f>
+        <@mgr_sql "${f}"/>
     </#list>
 </#macro>
