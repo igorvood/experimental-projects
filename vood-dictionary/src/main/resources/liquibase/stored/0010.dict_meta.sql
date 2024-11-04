@@ -2,7 +2,7 @@ create table dict_meta
 (
   id varchar(256) not null,
   description varchar(512),
-  constraint dict_meta_pkk primary key (id)
+  constraint dict_meta_pkk primary key (id, description)
 )
 /
 comment on table dict_meta is 'Мета информация по справочникам.'
