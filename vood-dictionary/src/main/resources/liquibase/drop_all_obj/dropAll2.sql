@@ -22,15 +22,15 @@ begin
                'drop '||routine_type||' '||routine_name  from information_schema.routines
         where specific_schema = 'db_configuration_manager'
        )
-       union
-       (
-        select 110, 'type', n.nspname,
-                'drop type '||t.typname||' cascade;' from pg_type t
-          LEFT JOIN pg_catalog.pg_namespace n ON n.oid = t.typnamespace
-        where  n.nspname = 'db_configuration_manager' and substr(t.typname,1,1)!='_'
-            and t.typname not in ('databasechangelog', 'databasechangeloglock' )
-        order by t.typname
-       )
+--        union
+--        (
+--         select 110, 'type', n.nspname,
+--                 'drop type '||t.typname||' cascade;' from pg_type t
+--           LEFT JOIN pg_catalog.pg_namespace n ON n.oid = t.typnamespace
+--         where  n.nspname = 'db_configuration_manager' and substr(t.typname,1,1)!='_'
+--             and t.typname not in ('databasechangelog', 'databasechangeloglock' )
+--         order by t.typname
+--        )
       )
 
       select tp.cmd  cmd from list tp
