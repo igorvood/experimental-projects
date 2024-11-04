@@ -8,18 +8,18 @@ begin
   for r in
     with list as
       ((select 100 as prior, 'table' as tp, tablename as name,
-        'drop table ' ||  tablename ||' CASCADE' cmd
+        'drop table if exists ' ||  tablename ||' CASCADE' cmd
         from pg_catalog.pg_tables where
         schemaname = 'db_configuration_manager' and
         tablename not in ('databasechangelog', 'databasechangeloglock')
         )
           union
         (select 10 as prior, 'view' as tp,  viewname as name,
-         'drop view '  || viewname cmd
+         'drop view if exists '  || viewname||' cascade' cmd
         from pg_catalog.pg_views where schemaname = 'db_configuration_manager')
           union
        (select 5, 'routine', routine_name,
-               'drop '||routine_type||' '||routine_name  from information_schema.routines
+               'drop '||routine_type||' if exists '||routine_name||' cascade'  from information_schema.routines
         where specific_schema = 'db_configuration_manager'
        )
 --        union
