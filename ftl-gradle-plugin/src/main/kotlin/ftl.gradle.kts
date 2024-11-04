@@ -11,7 +11,7 @@ val ftlTask by tasks.registering(FtlTask::class) {
     templateExtension.set("cl.ftl")
     rootBasedFtlPath.set(true)
     sourceDirectory.set(layout.projectDirectory.dir(dir))
-    outputDirectory.set(layout.buildDirectory.dir(dir))
+    outputDirectory.set(layout.buildDirectory.dir("resources/main"))
 }
 
 tasks.processResources {
