@@ -11,7 +11,7 @@ begin
             WHERE relkind in ('r', 'v')
               and nsp.nspname='db_configuration_manager'
               and pc.relname not in ('databasechangeloglock', 'databasechangelog', 'dual')
-              and pc.relname not like 'pdd%'
+--               and pc.relname not like 'pdd%'
         ),
         cc as
             (SELECT

@@ -1,3 +1,4 @@
+DO $$
 declare
     error_string varchar(2000);
 begin
@@ -19,4 +20,5 @@ begin
         raise_application_error(-20000, error_string);
     end if;
 end;
+$$;
 /

@@ -4,6 +4,6 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <include file="liquibase/stored/pdd/liquibase-pdd.xml"/>
+    <include file="/liquibase/pdd/liquibase-pdd.xml"/>
 
 </databaseChangeLog>
