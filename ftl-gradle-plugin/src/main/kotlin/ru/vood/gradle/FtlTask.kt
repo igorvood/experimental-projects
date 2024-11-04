@@ -5,6 +5,7 @@ import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputDirectory
+import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 
 abstract class FtlTask : DefaultTask() {
@@ -32,7 +33,7 @@ abstract class FtlTask : DefaultTask() {
 
     /** директория приемник шаблонов
      * */
-    @get:InputDirectory
+    @get:OutputDirectory
     abstract val outputDirectory: DirectoryProperty
 
     /** св-ва для шаблона
