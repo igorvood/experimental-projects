@@ -7,9 +7,10 @@
     <property name="sqlBatchDelimiter" value="\n/"/>
 
 
-    <changeSet id="liquibase/allData/all_data.sql" author="vood"  runAlways="false">
+    <changeSet id="liquibase/allData/all_data.sql" author="vood"  runAlways="false" >
 
-        <sqlFile path="liquibase/allData/all_data.sql" endDelimiter="${sqlBatchDelimiter}"/>
+        <sqlFile path="liquibase/allData/all_data.sql" endDelimiter="${sqlBatchDelimiter}" relativeToChangelogFile="true"
+                 />
     </changeSet>
 
 </databaseChangeLog>
