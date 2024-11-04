@@ -36,7 +36,7 @@ begin
           from cc
           where cc.column_comment is null)
       )
-    select STRING_AGG (d.nm, chr(10)) ::varchar lst
+    select STRING_AGG(d.nm, chr(10)) ::varchar lst
       from d
     limit  50
     )

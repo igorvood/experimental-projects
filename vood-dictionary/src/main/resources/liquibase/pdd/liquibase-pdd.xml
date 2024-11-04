@@ -5,13 +5,13 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
 
-    <changeSet id="liquibase/pdd/0010.pdd_all_tables.sql" author="vood"  runAlways="true">
-        <sqlFile path="liquibase/pdd/0010.pdd_all_tables.sql" endDelimiter="${sqlBatchDelimiter}"/>
+    <changeSet id="liquibase/pdd/0010.pdd_all_objects.sql" author="vood"  runAlways="true">
+        <sqlFile path="liquibase/pdd/0010.pdd_all_objects.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
-    <changeSet id="liquibase/pdd/0020.pdd_columns.sql" author="vood"  runAlways="true">
-        <sqlFile path="liquibase/pdd/0020.pdd_columns.sql" endDelimiter="${sqlBatchDelimiter}"/>
-    </changeSet>
+<!--    <changeSet id="liquibase/pdd/0020.pdd_columns.sql" author="vood"  runAlways="true">-->
+<!--        <sqlFile path="liquibase/pdd/0020.pdd_columns.sql" endDelimiter="${sqlBatchDelimiter}"/>-->
+<!--    </changeSet>-->
 
 
 
