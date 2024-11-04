@@ -8,6 +8,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.5"
     kotlin("plugin.serialization") version "2.0.0"//"1.9.21"
     kotlin("plugin.spring") version "2.0.0"
+    kotlin("plugin.jpa") version "2.0.0"
     id("ru.vood.gradle.ftl") version "1.0.0"
 
 }

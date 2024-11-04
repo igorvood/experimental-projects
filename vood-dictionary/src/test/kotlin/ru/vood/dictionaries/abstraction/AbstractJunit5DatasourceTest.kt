@@ -13,7 +13,7 @@ val delimiterScripts = "/"
 val pathSeparator = "/"
 
 
-abstract class AbstractDatasourceTests : AbstractTests() {
+abstract class AbstractJunit5DatasourceTest(val doExecuteSql: Boolean = false) : AbstractTests() {
 
     @Autowired
     lateinit var jdbcTemplate: JdbcTemplate
@@ -29,22 +29,34 @@ abstract class AbstractDatasourceTests : AbstractTests() {
 
     @BeforeAll
     fun beforeAll() = run {
-        afterAll()
-        runScriptsFromFile(setupClass)
+        if (doExecuteSql) {
+            afterAll()
+            runScriptsFromFile(setupClass)
+        }
     }
 
     @AfterAll
-    fun afterAll() = runScriptsFromFile(teardownClass)
+    fun afterAll() = kotlin.run {
+        if (doExecuteSql) {
+            runScriptsFromFile(teardownClass)
+        }
+    }
 
 
     @BeforeEach
     fun beforeEach() = run {
-        afterEach()
-        runScriptsFromFile(setupTest)
+        if (doExecuteSql) {
+            afterEach()
+            runScriptsFromFile(setupTest)
+        }
     }
 
     @AfterEach
-    fun afterEach() = runScriptsFromFile(teardownTest)
+    fun afterEach() = kotlin.run {
+        if (doExecuteSql) {
+            runScriptsFromFile(teardownTest)
+        }
+    }
 
     private fun runScriptsFromFile(fileName: String) {
         val fullFilename = fullPathToScripts + pathSeparator + fileName

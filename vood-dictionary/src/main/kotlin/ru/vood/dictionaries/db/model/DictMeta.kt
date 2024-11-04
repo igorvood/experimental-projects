@@ -16,5 +16,5 @@ data class DictMeta(
     val isDeleted: Boolean,
 
     @Column(name = "description", nullable = false)
-    val description: Boolean,
+    val description: String,
 )
