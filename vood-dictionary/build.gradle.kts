@@ -19,8 +19,10 @@ repositories {
 dependencies {
     val koTest = "5.9.1"
     val koTestExtensionSpring = "1.3.0"
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-//    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("org.liquibase:liquibase-core")
+    implementation("org.postgresql:postgresql")
 
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -32,7 +34,7 @@ dependencies {
 
 
 
-    implementation(platform("io.kotest:kotest-bom:$koTest"))
+    testImplementation(platform("io.kotest:kotest-bom:$koTest"))
 
     testImplementation(kotlin("test"))
     testImplementation ("io.kotest.extensions:kotest-extensions-spring:$koTestExtensionSpring")
