@@ -10,10 +10,10 @@ select tc.schema_name,
        tc.unique_constraint_schema,
        tc.unique_constraint_name
 FROM pdd_constraint tc
-    join information_schema.key_column_usage kcu on
-        (tc.constraint_name, tc.schema_name, tc.table_name) = ((kcu.constraint_name, kcu.table_schema, kcu.table_name))
-    left join information_schema.key_column_usage kcu2 on
-        (tc.unique_constraint_schema, tc.unique_constraint_name) = ((kcu2.constraint_schema, kcu2.constraint_name))
+         join information_schema.key_column_usage kcu on
+    (tc.constraint_name, tc.schema_name, tc.table_name) = ((kcu.constraint_name, kcu.table_schema, kcu.table_name))
+         left join information_schema.key_column_usage kcu2 on
+    (tc.unique_constraint_schema, tc.unique_constraint_name, kcu.position_in_unique_constraint) = ((kcu2.constraint_schema, kcu2.constraint_name, kcu2.ordinal_position))
 /
 COMMENT ON VIEW pdd_constraint_col IS 'Метаинформация колонок таблиц базы'
 /
