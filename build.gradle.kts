@@ -35,6 +35,6 @@ fun gradlePropertiesCopyToIncludeBuilds() {
     gradle.includedBuilds.forEach {
         val file = File(absoluteRootDir + "/" + it.name + gradleDir + propertiesFileName)
         sourse.copyTo(file, overwrite = true)
-        println(it.name)
+        println("""Copy $propertiesFileName to included build '${it.name}'""")
     }
 }
