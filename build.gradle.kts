@@ -1,5 +1,3 @@
-import java.nio.file.Files
-
 fun taskRef(name: String): List<TaskReference> =
     gradle.includedBuilds.flatMap {
         val prefix = it.name
@@ -10,17 +8,7 @@ fun taskRef(name: String): List<TaskReference> =
 
 
 tasks {
-    val gradleDir = "/gradle/wrapper"
-    val absoluteRootDir = project.projectDir.toString()
-
-    val propertiesFileName = "/gradle-wrapper.properties"
-    val sourse = File(absoluteRootDir + gradleDir+ propertiesFileName)
-
-    gradle.includedBuilds.forEach {
-        val file = File(absoluteRootDir + "/" + it.name + gradleDir + propertiesFileName)
-        sourse.copyTo(file, overwrite = true)
-        println(it.name)
-    }
+    gradlePropertiesCopyToIncludeBuilds()
 
     arrayOf("assemble", "build", "clean").forEach {
         register(it) {
@@ -34,5 +22,19 @@ tasks {
             group = LifecycleBasePlugin.VERIFICATION_GROUP
             dependsOn(taskRef(it))
         }
+    }
+}
+
+fun gradlePropertiesCopyToIncludeBuilds() {
+    val gradleDir = "/gradle/wrapper"
+    val absoluteRootDir = project.projectDir.toString()
+
+    val propertiesFileName = "/gradle-wrapper.properties"
+    val sourse = File(absoluteRootDir + gradleDir + propertiesFileName)
+
+    gradle.includedBuilds.forEach {
+        val file = File(absoluteRootDir + "/" + it.name + gradleDir + propertiesFileName)
+        sourse.copyTo(file, overwrite = true)
+        println(it.name)
     }
 }
