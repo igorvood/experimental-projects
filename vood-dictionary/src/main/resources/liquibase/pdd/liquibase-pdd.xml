@@ -13,6 +13,11 @@
         <sqlFile path="liquibase/pdd/0020.pdd_columns.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
+    <changeSet id="liquibase/pdd/0030.pdd_constraint.sql" author="vood"  runAlways="true">
+        <sqlFile path="liquibase/pdd/0030.pdd_constraint.sql" endDelimiter="${sqlBatchDelimiter}"/>
+    </changeSet>
+
+
 
 
 </databaseChangeLog>
