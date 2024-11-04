@@ -1,0 +1,31 @@
+version: '3.3'
+services:
+  db_1:
+    image: postgres:12.11
+#    restart: always
+    environment:
+      - POSTGRES_DB=db_configuration_manager
+      - POSTGRES_USER=db_configuration_manager_admin
+      - POSTGRES_PASSWORD=qwerty
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql_12_11/data_1
+  db_2:
+    image: postgres:12.11
+    #    restart: always
+    environment:
+      - POSTGRES_DB=db_configuration_manager
+      - POSTGRES_USER=db_configuration_manager_admin
+      - POSTGRES_PASSWORD=qwerty
+    #      - POSTGRES_USER=postgres
+    #      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5433:5432'
+    volumes:
+      - db:/var/lib/postgresql_12_11/data_2
+volumes:
+  db:
+    driver: local
