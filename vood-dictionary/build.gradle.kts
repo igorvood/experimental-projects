@@ -37,8 +37,8 @@ dependencies {
 
 
 
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation(platform("io.kotest:kotest-bom:$koTest"))
-
     testImplementation(kotlin("test"))
     testImplementation ("io.kotest.extensions:kotest-extensions-spring:$koTestExtensionSpring")
     testImplementation ("io.kotest:kotest-assertions-core")
