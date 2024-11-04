@@ -1,4 +1,0 @@
-spring:
-  liquibase:
-    enabled: true
-    change-log: liquibase/tests/for_tests.xml
