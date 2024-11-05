@@ -17,3 +17,9 @@ INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted,
 INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('id', 'department', 'String', null, false, 'department_id');
 INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('parent_id', 'department', 'Obj', 'department', false, 'department_parent_id');
 INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('name', 'department', 'String', null, false, 'department_name');
+INSERT INTO db_configuration_manager.dict_uk (id, dict_id, col_id) VALUES ('1', 'currency', 'ISO');
+INSERT INTO db_configuration_manager.dict_uk (id, dict_id, col_id) VALUES ('2', 'type_acc', 'code');
+INSERT INTO db_configuration_manager.dict_uk (id, dict_id, col_id) VALUES ('3', 'percent', 'currency');
+INSERT INTO db_configuration_manager.dict_uk (id, dict_id, col_id) VALUES ('3', 'percent', 'type_acc');
+INSERT INTO db_configuration_manager.dict_uk (id, dict_id, col_id) VALUES ('4', 'department', 'id');
+

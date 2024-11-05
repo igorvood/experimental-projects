@@ -6,7 +6,7 @@ create table dict_value
   val_n numeric,
   val_d timestamp,
   val_c text,
-  constraint dict_value_pk primary key (dict_id, col_id),
+  constraint dict_value_pk primary key (dict_id, col_id, val_c),
   constraint dict_value_dict_fk foreign key (dict_id, col_id) references dict_column_meta(dict_id, id) on delete cascade,
   constraint dict_value_val_ck check (
       (val_s is not null and (val_n is null and val_c is null and val_d is null )) or
