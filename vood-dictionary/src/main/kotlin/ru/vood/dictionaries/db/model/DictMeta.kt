@@ -7,14 +7,14 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "dict_meta")
-data class DictMeta(
+open class DictMeta {
     @Id
-    @Column(name = "id", nullable = false)
-    val id: String,
+    @Column(name = "id", nullable = false, length = 256)
+    open var id: String? = null
 
     @Column(name = "is_deleted", nullable = false)
-    val isDeleted: Boolean,
+    open var isDeleted: Boolean? = false
 
-    @Column(name = "description", nullable = false)
-    val description: String,
-)
+    @Column(name = "description", nullable = false, length = 512)
+    open var description: String? = null
+}

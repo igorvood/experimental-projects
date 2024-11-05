@@ -1,27 +1,29 @@
 package ru.vood.dictionaries.db.model
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
-import jakarta.persistence.Table
+import jakarta.persistence.*
+import org.hibernate.annotations.OnDelete
+import org.hibernate.annotations.OnDeleteAction
 
 @Entity
 @Table(name = "dict_column_meta")
-data class DictColumnMeta(
-    @Id
-    @Column(name = "id", nullable = false)
-    val id: String,
+open class DictColumnMeta {
+    @EmbeddedId
+    open var id: DictColumnMetaId? = null
 
-    @Column(name = "dict_id", nullable = false)
-    val dictId: String,
+    @MapsId("dictId")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "dict_id", nullable = false)
+    open var dict: ru.vood.dictionaries.db.model.DictMeta? = null
 
-    @Column(name = "type_col_id", nullable = false)
-    val typeColId: String,
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "type_col_id", nullable = false)
+    open var typeCol: ru.vood.dictionaries.db.model.MetaTypeCol? = null
 
     @Column(name = "is_deleted", nullable = false)
-    val isDeleted: Boolean,
+    open var isDeleted: Boolean? = false
 
-    @Column(name = "description", nullable = false)
-    val description: String,
-
-    )
+    @Column(name = "description", nullable = false, length = 512)
+    open var description: String? = null
+}

@@ -1,21 +1,27 @@
 package ru.vood.dictionaries.db.model
 
 import jakarta.persistence.Column
+import jakarta.persistence.EmbeddedId
 import jakarta.persistence.Entity
-import jakarta.persistence.Id
 import jakarta.persistence.Table
+import java.math.BigDecimal
+import java.time.Instant
 
 @Entity
 @Table(name = "dict_value")
-data class DictValue(
-    @Id
-    @Column(name = "id", nullable = false)
-    val id: String,
+open class DictValue {
+    @EmbeddedId
+    open var id: DictValueId? = null
 
-    @Column(name = "dict_id", nullable = false)
-    val dictId: String,
+    @Column(name = "val_s", length = 512)
+    open var valS: String? = null
 
-    @Column(name = "col_id", nullable = false)
-    val typeColId: String,
+    @Column(name = "val_n")
+    open var valN: BigDecimal? = null
 
-    )
+    @Column(name = "val_d")
+    open var valD: Instant? = null
+
+    @Column(name = "val_c", length = Integer.MAX_VALUE)
+    open var valC: String? = null
+}
