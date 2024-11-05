@@ -4,4 +4,5 @@
 <@fmt.lqb_mgr_sql "0020.pdd_columns.sql" />
 <@fmt.lqb_mgr_sql "0030.pdd_constraint.sql" />
 <@fmt.lqb_mgr_sql "0040.pdd_constraint_col.sql" />
+<@fmt.lqb_mgr_sql "0050.pdd_indexs.sql" />
 <@fmt.liquibase_tail/>
