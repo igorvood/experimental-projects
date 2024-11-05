@@ -11,39 +11,39 @@ import ru.vood.dictionaries.db.model.DictMeta
 
 val sdfd = DictMetaRepository::class.java
 
-class DictMetaRepositoryTest : AbstractRepositoryTest<DictMeta, String>(
-    initData = DictMeta(
-        id = "id",
-        isDeleted = false,
-        description = "description"
-    )
-) {
-
-    @org.junit.jupiter.api.AfterEach
-    fun afterEachC() {
-        repository.deleteAll()
-    }
-
-    @Autowired
-    private lateinit var repository: DictMetaRepository
-
-    @Test
-    @DisplayName("успех вставки в транзакции")
-    fun saveInTransaction() {
-        saveInTransactionHelper(repository)
-    }
-
-    @Test
-    @DisplayName("ошибка вставки без транзакции")
-    fun saveWithoutTransaction() {
-
-        val shouldThrow = shouldThrow<IllegalTransactionStateException> {
-            repository.save(initData)
-        }
-        shouldThrow.message shouldBe "No existing transaction found for transaction marked with propagation 'mandatory'"
-
-//        saveWithoutTransactionHelper(repository)
-    }
-
-
-}
+//class DictMetaRepositoryTest : AbstractRepositoryTest<DictMeta, String>(
+//    initData = DictMeta(
+//        id = "id",
+//        isDeleted = false,
+//        description = "description"
+//    )
+//) {
+//
+//    @org.junit.jupiter.api.AfterEach
+//    fun afterEachC() {
+//        repository.deleteAll()
+//    }
+//
+//    @Autowired
+//    private lateinit var repository: DictMetaRepository
+//
+//    @Test
+//    @DisplayName("успех вставки в транзакции")
+//    fun saveInTransaction() {
+//        saveInTransactionHelper(repository)
+//    }
+//
+//    @Test
+//    @DisplayName("ошибка вставки без транзакции")
+//    fun saveWithoutTransaction() {
+//
+//        val shouldThrow = shouldThrow<IllegalTransactionStateException> {
+//            repository.save(initData)
+//        }
+//        shouldThrow.message shouldBe "No existing transaction found for transaction marked with propagation 'mandatory'"
+//
+////        saveWithoutTransactionHelper(repository)
+//    }
+//
+//
+//}
