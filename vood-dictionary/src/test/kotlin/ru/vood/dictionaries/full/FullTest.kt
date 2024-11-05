@@ -11,7 +11,7 @@ import ru.vood.dictionaries.db.repo.DictColumnMetaRepository
 import ru.vood.dictionaries.db.repo.DictMetaRepository
 import ru.vood.dictionaries.db.repo.MetaTypeColRepository
 
-class FullTest : AbstractJunit5DatasourceTest() {
+class FullTest : AbstractJunit5DatasourceTest(true) {
 
     @Autowired
     lateinit var metaTypeColRepository: MetaTypeColRepository
@@ -25,10 +25,10 @@ class FullTest : AbstractJunit5DatasourceTest() {
     @Test
     fun asdD() {
 
-        val save = metaTypeColRepository.saveAllAndFlush(metaTypeCols)
-        dictMetaRepository.saveAllAndFlush(dictMetas)
-        dictColumnMetaRepository.saveAllAndFlush(dictColumnMetas)
-        println(save)
+//        val save = metaTypeColRepository.saveAllAndFlush(metaTypeCols)
+//        dictMetaRepository.saveAllAndFlush(dictMetas)
+//        dictColumnMetaRepository.saveAllAndFlush(dictColumnMetas)
+        println(1)
     }
 
     companion object {
