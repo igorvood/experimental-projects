@@ -11,9 +11,9 @@ INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted,
 INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('name', 'currency', 'String', null, false, 'currency_name');
 INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('code', 'type_acc', 'String', null, false, 'type_acc_code');
 INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('name', 'type_acc', 'String', null, false, 'type_acc_name');
-INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('currency', 'percent', 'String', null, false, 'percent_currency');
-INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('type_acc', 'percent', 'String', null, false, 'percent_type_acc');
+INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('currency', 'percent', 'Obj', 'currency', false, 'percent_currency');
+INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('type_acc', 'percent', 'Obj', 'type_acc', false, 'percent_type_acc');
 INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('value', 'percent', 'String', null, false, 'percent_value');
 INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('id', 'department', 'String', null, false, 'department_id');
-INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('parent_id', 'department', 'String', null, false, 'department_parent_id');
+INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('parent_id', 'department', 'Obj', 'department', false, 'department_parent_id');
 INSERT INTO dict_column_meta (id, dict_id, type_col_id, ref_dict_id, is_deleted, description) VALUES ('name', 'department', 'String', null, false, 'department_name');
