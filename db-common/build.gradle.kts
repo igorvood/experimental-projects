@@ -8,6 +8,7 @@ plugins {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -23,14 +24,3 @@ publishing{
         }
     }
 }
-
-//jar {
-//    baseName = 'analytics'
-//    from('src/main/java') {
-//        include 'config/**/*.xml'
-//    }
-//
-//    manifest {
-//        attributes 'Implementation-Title': 'Analytics Library', 'Implementation-Version': version
-//    }
-//}
